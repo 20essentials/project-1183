@@ -1,0 +1,90 @@
+---
+import Mouse from '@/icons/Mouse.svg'
+import ArrowDown from '@/icons/ArrowDown.svg'
+import UnderlineWord from '@/components/UnderlineWord.astro'
+import CodeBrace from '@/icons/CodeBrace.svg'
+import { Image } from 'astro:assets'
+---
+
+<div class="relative min-h-screen flex flex-col items-center justify-center px-4 text-center">
+  <div class="space-y-8 pt-24 flex flex-col">
+    <p
+      class="text-4xl text-balance md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-[#F7DF1F]/40 via-[#FFFE65] to-[#F7DF1F]/25 font-clash font-[550] inline-block"
+    >
+      Gracias por disfrutar de la
+    </p>
+    <h1
+      class="text-6xl md:text-8xl font-clash font-[550] bg-gradient-to-r from-white/40 via-white to-white/25 inline-block text-transparent bg-clip-text"
+    >
+      JSConf España 2025
+    </h1>
+    <div class="text-[clamp(1.8rem,5vw,4.5rem)] leading-[100%] font-light space-y-2">
+      <p>
+        Una experiencia <span
+          class="text-black relative before:content-[''] overflow-hidden before:absolute before:w-[calc(100%_+_0.25em)] before:h-full before:bg-gradient-to-r before:from-[#FFFE65] before:to-[#F7DF1F] before:rotate-2 mix-blend-lighten before:-z-30 before:-left-[0.125em] before:top-0"
+          >exclusiva</span
+        > de
+      </p>
+      <p>JavaScript</p>
+    </div>
+    <a
+      class="flex items-center justify-center gap-0 hover:scale-110 transition-transform duration-300 ease-in-out hover:text-javascript w-fit mx-auto"
+      href="https://midu.link/keepcoding"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span>Powered by</span>
+      <Image
+        width="508"
+        height="108"
+        src="/sponsors/keepcoding.webp"
+        alt="KeepCoding logo"
+        class="h-11 w-auto"
+      />
+    </a>
+    <p class="text-[#FFFE65] text-center text-2xl text-balance md:text-3xl">
+      ¡No te pierdas la próxima edición!
+    </p>
+
+    <!-- <div class="flex flex-col md:flex-row gap-4 justify-center mt-12">
+      <LinkEntrada style="yellow" />
+    </div>
+    <div
+      class="inline-flex items-center justify-center gap-2.5 bg-white/5 px-4 py-2.5 rounded-full font-clash"
+    >
+      <span>🔥</span>
+      <p
+        class="bg-gradient-to-bl from-[#F7DF1F] to-[#FF5011] text-transparent bg-clip-text leading-normal flex flex-row gap-x-2"
+      >
+        <TicketsAvailable server:defer>
+          <span slot="fallback">¡ENTRADAS AGOTADAS!</span>
+        </TicketsAvailable>
+        <span class="text-white">¡Consigue la tuya antes de que se agoten!</span>
+      </p>
+    </div> -->
+
+    <div class="max-sm:hidden flex flex-col items-center justify-center mt-24 space-y-2">
+      <Mouse class="size-8" />
+      <ArrowDown class="size-6 animate-bounce" />
+    </div>
+
+    <div
+      class="relative max-sm:w-5/6 w-4/6 pt-20 sm:pt-[105px] pb-20 sm:pb-[218px] text-center leading-tight font-clash mx-auto lg:w-full lg:px-24 lg:max-w-[90rem] text-balance"
+    >
+      <h2 class="lg:text-[64px] md:text-5xl text-[34px]">
+        No es solo una conferencia más.<br />
+        <span class="text-white/80">
+          <span>
+            Es un <span class="text-javascript"
+              >evento <UnderlineWord
+                class="text-javascript -translate-y-2 lg:-translate-y-4 -translate-x-10 lg:-translate-x-0"
+                ><span class="text-javascript">único</span></UnderlineWord
+              ></span
+            >
+          </span> donde figuras clave del desarrollo web comparten sus secretos
+        </span>
+      </h2>
+      <CodeBrace class="max-sm:hidden absolute right-0" />
+    </div>
+  </div>
+</div>

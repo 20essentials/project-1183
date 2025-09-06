@@ -1,0 +1,126 @@
+---
+import Container from '@/components/Container.astro'
+import CrossContainerTitle from '@/components/CrossContainerTitle.astro'
+import WorkshopCard from '@/components/WorkshopCard.astro'
+import type { TypeTag } from '@/components/WorkshopSkillTag.astro'
+import { TAGS } from '@/components/WorkshopSkillTag.astro'
+import LinkEntrada from '@/components/LinkEntrada.astro'
+import { Image } from 'astro:assets'
+
+type Workshop = {
+  hour: string
+  title: string
+  image: string
+  author: string
+  authorDesc: string
+  workshopDesc: string
+  tags: Array<TypeTag>
+}
+
+const workshops: Workshop[] = [
+  {
+    hour: '11:30',
+    title: 'Introducción a Test-Driven Development con JS y TS',
+    author: 'Carlos Blé',
+    authorDesc: 'FullStack Developer en LeanMind',
+    image: 'carlos-ble.webp',
+    workshopDesc:
+      'TDD es una práctica que ha demostrado funcionar en el mundo real para quienes han adquirido el suficiente criterio y dominio de la técnica. Permite escribir código más simple, con muchos menos fallos, y dejando excelentes baterias de test para cubrir de forma segura la evolución funcional del producto. Carlos Blé lleva 15 años practicando TDD, ha escrito varios libros sobre ello y acompañado a multitud de equipos en la adopción de TDD, así como en otras practicas del método eXtreme Programming.',
+    tags: [TAGS.TESTING_AVANZADO, TAGS.JAVASCRIPT, TAGS.TYPESCRIPT],
+  },
+  {
+    hour: '13:00',
+    title: 'Creación de agentes de IA con Langchain.js',
+    author: 'Eric Risco',
+    authorDesc: 'AI Tech Lead en Andorra Telecom',
+    image: 'eric-risco.webp',
+    workshopDesc:
+      'Langchain.js es una librería de JavaScript que permite a los desarrolladores crear agentes de IA con facilidad. Aprende a implementar las bibliotecas de código abierto de Langchain.js para Node.js, integrarte con modelos de IA generativa y ejecutarlo de manera independiente. Perfecto para quienes buscan optimizar su proceso de desarrollo de IA.',
+    tags: [TAGS.IA, TAGS.NODEJS],
+  },
+  {
+    hour: '16:00',
+    title: 'Introducción a Firebase Genkit y Inteligencia Artificial',
+    author: 'Xavier Portilla',
+    authorDesc: 'Software Engineer en Voice Flow',
+    image: 'xavi-portilla.webp',
+    workshopDesc:
+      'Descubre Firebase Genkit en este taller introductorio en el DevFest Madrid. Exploraremos cómo este versátil framework permite a los desarrolladores crear aplicaciones impulsadas por inteligencia artificial con facilidad. Aprende a implementar las bibliotecas de código abierto de Genkit para Node.js y Go, integrarte con modelos de IA generativa y ejecutarlo de manera independiente de los servicios de Google. Perfecto para quienes buscan optimizar su proceso de desarrollo de IA.',
+    tags: [TAGS.FIREBASE, TAGS.IA],
+  },
+  {
+    hour: '17:20',
+    title: 'Desarrolla skills de Alexa con NodeJS',
+    author: 'Pedro Plasencia',
+    authorDesc: 'Fundador de "Programación en Español"',
+    image: 'pedro-plasencia.webp',
+    workshopDesc:
+      'En este taller aprenderás a crear un bot de Alexa con Node, a usar la Alexa Developer Console y conocerás la teoría necesaria y veremos la práctica desde cero para que puedas desarrollar tus skills y llevarlas al máximo y lograr publicarlas en la tienda de skills de Alexa.',
+    tags: [TAGS.NODEJS],
+  },
+]
+---
+
+<section id="workshops" class="px-section mt-14 relative">
+  <Image
+    width={160}
+    height={160}
+    src="/img/workshops-ms.webp"
+    alt="Icono de mensajes"
+    class="absolute top-20 left-24 max-xl:hidden w-40 max-2xl:w-24 max-2xl:top-32 max-2xl:left-10"
+  />
+  <Image
+    width={172}
+    height={176}
+    src="/img/workshops-cubes.webp"
+    alt="Icono de cubos"
+    class="absolute right-28 max-xl:hidden w-36 grayscale -rotate-12 top-28 max-2xl:w-24 max-2xl:top-36 max-2xl:right-10"
+  />
+  <Container>
+    <div class="flex justify-center flex-wrap">
+      <h2
+        class="font-clash text-white text-[clamp(2rem,5vw,4.5rem)] text-center leading-tight text-balance"
+      >
+        No solo aprendizaje, también conexión,
+        <CrossContainerTitle>workshops del evento</CrossContainerTitle>
+      </h2>
+      <p class="text-light-gray max-lg:text-center max-lg:mt-8 max-lg:w-5/6">
+        Aprende, conecta y colabora en sesiones prácticas diseñadas para inspirar y potenciar tus
+        habilidades.
+      </p>
+    </div>
+    <div></div>
+    <div class="flex sm:flex-row flex-col justify-between mb-6 lg:mt-24 mt-12">
+      <h3 class="text-white font-clash font-medium md:text-[34px] text-2xl">
+        Talleres prácticos destacados
+      </h3>
+      <!-- <a
+        href={COMPRAR_ENTRADA}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-clash text-javascript group flex gap-x-1 items-center font-medium hover:opacity-70"
+      >
+        <span>Apuntarme a la lista de espera</span>
+        <ArrowRight class="group-hover:translate-x-1 transition" />
+      </a> -->
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 flex-col lg:gap-x-6 gap-y-6">
+      {
+        workshops.map(({ hour, title, author, authorDesc, workshopDesc, tags, image }) => (
+          <WorkshopCard
+            hour={hour}
+            image={image}
+            title={title}
+            author={author}
+            authorDesc={authorDesc}
+            workshopDesc={workshopDesc}
+            tags={tags}
+          />
+        ))
+      }
+    </div>
+    <!-- <div class="flex justify-center max-sm:mx-12 mt-14">
+      <LinkEntrada style="yellow" />
+    </div> -->
+  </Container>
+</section>

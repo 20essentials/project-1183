@@ -1,0 +1,53 @@
+---
+import { LUGAR_MAPA } from '@/consts/links'
+import Container from '@/components/Container.astro'
+import UnderlineWord from '@/components/UnderlineWord.astro'
+import Agenda from '@/icons/Agenda.svg'
+import Pin from '@/icons/Pin.svg'
+import ArrowRight from '@/icons/ArrowRight.svg'
+import LinkEntrada from '@/components/LinkEntrada.astro'
+---
+
+<section class="bg-javascript text-black pb-8 py-12 px-6">
+  <Container>
+    <h2 class="text-6xl text-center font-clash max-w-5xl mx-auto">
+      El día que Madrid se convertirá en la <strong class="font-semibold"
+        >capital española de <UnderlineWord class="!left-20">JavaScript</UnderlineWord>
+      </strong>
+    </h2>
+
+    <div class="flex py-12 gap-x-10 justify-between flex-col md:flex-row gap-y-12">
+      <article class="md:p-12 border border-black w-full p-8">
+        <span class="flex justify-start gap-x-2 items-center text-xl opacity-70"
+          ><Agenda slot="icon-left" />
+          ¿Cuándo?
+        </span>
+        <h3 class="text-6xl font-clash font-medium">1 de marzo 2025</h3>
+        <h4 class="text-xl font-light">Sábado</h4>
+      </article>
+
+      <article class="md:p-12 border border-black w-full p-8">
+        <span class="flex justify-start gap-x-2 items-center text-xl opacity-70">
+          <Pin slot="icon-left" />
+          Estaremos en...
+        </span>
+        <h4 class="text-6xl font-clash font-medium">La Nave, Madrid</h4>
+        <h5 class="text-xl font-light">
+          <a
+            href={LUGAR_MAPA}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-clash group flex gap-x-1 items-center font-medium hover:opacity-70"
+          >
+            <span class="underline underline-offset-4">Mostrar en el mapa</span>
+            <ArrowRight slot="icon-right" class="group-hover:translate-x-1 transition" />
+          </a>
+        </h5>
+      </article>
+    </div>
+
+    <!-- <div class="flex justify-center">
+      <LinkEntrada style="black" />
+    </div> -->
+  </Container>
+</section>
